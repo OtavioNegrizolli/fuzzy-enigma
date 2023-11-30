@@ -1,5 +1,5 @@
-import chalk from "chalk";
 import { Router } from "express";
+import express from "express";
 
 const routes = Router();
 
@@ -8,9 +8,9 @@ const routes = Router();
  * @param {Request} req 
  * @param {Response} res 
  */
-async function getProduct(req, res) {
+function getProduct(req, res) {
     const productId = req.params.id;
-    return await res.json({
+    return res.json({
         id: productId,
         name: 'Banana',
         subcategory: 'Fruta',
@@ -22,13 +22,12 @@ routes.get('/product/:id', getProduct);
 
 /**
  * 
- * @param {Request} req 
- * @param {Response} res 
+ * @param {express.Request} req 
+ * @param {express.Response} res 
  */
-async function getProducts(req, res) {
+function getProducts(req, res) {
     const r = req.query;
-    console.log(chalk.green(process.env.DB_PWD));
-    return await res.json([
+    return res.json([
         {
             id: 123,
             name: 'Banana1',
@@ -51,13 +50,19 @@ async function getProducts(req, res) {
 }
 
 routes.get('/product', getProducts);
-
-async function create(req, res) {
-    console.log(chalk.green(JSON.stringify(req.body)));
-    return await res.status(201).json({
+/**
+ * 
+ * @param {Request} req 
+ * @param {Response} res 
+ */
+function create(req, res) {
+    return res.status(201).json({
         ok: 'nice'
     });
 }
 routes.post('/product', create);
 
+
+routes.use(express.static('src/pages/private'));
+routes.use(express.static('src/public'));
 export default routes;

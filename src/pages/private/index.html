@@ -1,0 +1,258 @@
+<!--
+=========================================================
+* Argon Dashboard 2 - v2.0.4
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/argon-dashboard
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://www.creative-tim.com/license)
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <title>
+    Atividade 2
+  </title>
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+  <link id="pagestyle" href="assets/css/customizations.css" rel="stylesheet" />
+</head>
+
+<body class="g-sidenav-show bg-gray-100 p-0">
+  <div class="position-absolute w-100 min-height-300 top-0"
+    style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/profile-layout-header.jpg'); background-size: 100% auto; background-position-y: 50%;">
+    <span class="mask bg-primary opacity-6"></span>
+  </div>
+
+  <main
+    class="main-content position-relative max-height-vh-100 h-100 container-fluid py-md-4 row justify-content-center p-0 m-0">
+
+    <form id="register" class="col-12 col-md-10 col-lg-8 card border-square border-rounded">
+      <header class="card-header pb-0">
+        <h1 class="mb-0">Cadastro de Usuário</h1>
+      </header>
+      <article class="card-body text-uppercase">
+        <section>
+          <header class="text-sm pb-3">Informações do usuário</header>
+          <div class="row">
+            <picture class="col justify-content-center align-items-center d-flex flex-column">
+              <img 
+                src="https://picsum.photos/200/300?grayscale" 
+                class="img-fluid img-thumbnail shadow" id="profilepng"
+                alt="Imagem de perfil" 
+              />
+              <caption>
+                <label for="profileImg" class="form-label pt-2">Imagem de perfil</label>
+                <input class="visually-hidden" type="file" id="profileImg" name="profileImg" accept="image/*"
+                  capture="environment">
+              </caption>
+            </picture>
+            <div class="col-12 col-md-7 col-lg-9 d-flex align-items-end">
+              <div class="col-12 form-group">
+                <label for="username" class="form-control-label">Login</label>
+                <input id="username" name="username" class="form-control" type="text" >
+              </div>
+            </div>
+            
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6 form-group">
+              <label for="firstname" class="form-control-label">Primeiro nome</label>
+              <input id="firstname" class="form-control" type="text" value="Jesse">
+            </div>
+            <div class="col-12 col-md-6 form-group">
+              <label for="lastname" class="form-control-label">Último nome</label>
+              <input id="lastname" name="lastname" class="form-control" type="text" value="James">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6 form-group">
+              <label for="password" class="form-control-label">Senha</label>
+              <input type="password" name="password" id="password" class="form-control" value="segredo"  />
+              <i class="fa fa-eye" id="showpwd"></i>
+            </div>
+            <div class="col-12 col-md-6 form-group">
+              <label for="confirmpassword" class="form-control-label">Confimar senha</label>
+              <input type="password" name="confirmpassword" id="confirmpassword" class="form-control" value="segredo"  />
+              <i class="fa fa-eye" id="showconfirm"></i>
+            </div>
+            <div class="col-12 col-md-6 form-group">
+              <label for="cpf" class="form-control-label">CPF</label>
+              <input type="text" name="cpf" id="cpf" class="form-control" value="segredo" />
+            </div>
+            <div class="col-12 col-md-6 form-group">
+              <label for="birthdate" class="form-control-label">Data de Nascimento</label>
+              <input type="date" name="birthdate" id="birthdate"  class="form-control" />
+            </div>
+            <div class="col-12 col-sm-12 col-md-2 form-group">
+              <label for="children" class="form-control-label">N° filhos</label>
+              <input type="number" name="children" id="children" class="form-control" min="0" value="0"/>
+            </div>
+            <div class="col-12 col-md form-group">
+              <label class="mb-2">Genero</label><br/>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="genero" id="genero1" checked>
+                <label class="form-check-label" for="genero1">
+                  Masculino
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="genero" id="genero2">
+                <label class="form-check-label" for="genero2">
+                  Feminino
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
+        <hr class="horizontal dark">
+        <!-- contato -->
+        <section class="row">
+          <header class="text-sm pb-3">Informações de contato</header>
+          <div class="col-12 col-md-6 form-group">
+            <label for="phone" class="form-control-label" >Telefone 1</label>
+            <input id="phone" name="phone" type="tel" class="form-control">
+          </div>
+          <div class="col-12 col-md-6 form-group">
+            <label for="phone2" class="form-control-label">Telefone 2</label>
+            <input id="phone2" name="phone2" type="tel" class="form-control">
+          </div>
+          <div class="col-12 col-md-6 form-group">
+            <label for="email" class="form-control-label">E-mail</label>
+            <input id="email" name="email" class="form-control" type="email" value="jesse@example.com"  >
+          </div>
+        </section>
+        <hr class="horizontal dark">
+        <!-- endereço -->
+        <section class="row">
+          <header class="text-sm pb-3">Endereço</header>
+          <div class="col-12 col-md-3 form-group">
+            <label for="cep" class="form-control-label">CEP</label>
+            <input id="cep" class="form-control" type="text" value="19.560-000" >
+          </div>
+          <div class="col-md-2 form-group">
+            <label for="uf" class="form-control-label">Estado</label>
+            <select id="uf" class="form-select" type="text" >
+              <option value="AC">AC</option>
+              <option value="AL">AL</option>
+              <option value="AM">AM</option>
+              <option value="AP">AP</option>
+              <option value="BA">BA</option>
+              <option value="CE">CE</option>
+              <option value="DF">DF</option>
+              <option value="ES">ES</option>
+              <option value="GO">GO</option>
+              <option value="MA">MA</option>
+              <option value="MG">MG</option>
+              <option value="MS">MS</option>
+              <option value="MT">MT</option>
+              <option value="PA">PA</option>
+              <option value="PB">PB</option>
+              <option value="PI">PE</option>
+              <option value="PI">PI</option>
+              <option value="PR">PR</option>
+              <option value="RJ">RJ</option>
+              <option value="RO">RO</option>
+              <option value="RR">RR</option>
+              <option value="RN">RN</option>
+              <option value="RS">RS</option>
+              <option value="SC">SC</option>
+              <option value="SE">SE</option>
+              <option value="SP">SP</option>
+              <option value="TO">TO</option>
+            </select>
+          </div>
+          <div class="col-md-4 form-group">
+            <label for="city" class="form-control-label">Cidade</label>
+            <input id="city" name="city" class="form-control" type="text" value="Lugar nenhum" placeholder="Arroio dos Ratos"  >
+          </div>
+          <div class="col-md-3 form-group">
+            <label for="neighborhood" class="form-control-label">Bairro</label>
+            <input id="neighborhood" name="neighborhood" class="form-control" type="text" placeholder="Centro" value="Lugar nenhum" >
+          </div>
+          <div class="col-12 col-md-8 form-group">
+            <label for="street" class="form-control-label">Rua</label>
+            <input id="street" name="street" class="form-control" type="text" value="Rua Dos Bobos" placeholder="Av. Brasil" >
+          </div>
+          <div class="col-12 col-sm-6 col-md-2 form-group">
+            <label for="number" class="form-control-label">N°</label>
+            <input id="number" name="number" class="form-control" type="text" value="0" >
+          </div>
+          <div class="col-12 col-sm-6 col-md-2 form-group">
+            <label for="complement" class="form-control-label">Complemento</label>
+            <input id="complement" name="complement" class="form-control" type="text" value="0">
+          </div>
+        </section>
+        <hr class="horizontal dark">
+        <!-- text area -->
+        <section class="row">
+          <header class="mb-3 text-sm">Sobre mim</header>
+          <div class="col-md-12 form-group">
+            <label for="about-me" class="form-control-label">Sobre mim</label>
+            <textarea id="about-me" class="form-control" type="text" rows="6"></textarea>
+          </div>
+        </section>
+        <hr class="horizontal dark">
+        <section class="row">
+          <div class="form-group col">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="terms" >
+              <label class="form-check-label" for="terms">Li e aceito com os <a href="https://google.com" target="_blank" rel="noopener noreferrer">termos e condições</a></label>
+            </div>
+            <!-- <label for="terms">
+              <input type="checkbox" name="terms" id="terms" />
+              
+            </label> -->
+          </div>
+        </section>
+      </article>
+      <footer class="card-footer">
+        <div class="row justify-content-center" style="gap: 1rem">
+          <button type="submit" class="btn btn-primary col-12 col-sm-6 col-md-4">Confirmar</button>
+          <button type="reset" class="btn btn-outline-danger col-12 col-sm-6 col-md-4">Cancelar</button>
+        </div>
+      </footer>
+    </form>
+  </main>
+  <!--   Core JS Files   -->
+  <script src="assets/js/core/popper.min.js"></script>
+  <script src="assets/js/core/bootstrap.min.js"></script>
+  <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script>
+
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+  <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="assets/js/argon-dashboard.min.js?v=2.0.4"></script>
+  <script type="module" src="assets/js/custom-element.js"></script>
+  <script type="module" src="assets/js/index.js"></script>
+</body>
+
+</html>
