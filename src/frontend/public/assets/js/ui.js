@@ -72,37 +72,19 @@ export function onBlurChildrenNumber(evt) {
     evt.target.setValidity(v != null && !isNaN(n) && n >= 0);
 }
 
-/** @description true if was a user action that triggered the event */
-let phoneBlurUserEvent = true;
-
 /**
- * @param {string} other 
+ * @param {Event} evt 
  */
-export function onBlurPhone(other) {
-    /** 
-     *  @param {Event} evt 
-     */
-    function f(evt) {
-        const v2 = $(other).value?.replace(/\D/ig, '');
-        let v = evt.target.value;
-        // já temos um telefone válido, esse não precisa
-        if ((v == null || v.length == 0) && v2 != null && v2.length > 0) {
-            evt.target.setPristine();
-        }
-        else {
-            v = v.replace(/\D/ig, '');
-            evt.target.setValidity(!(v == null || v.length < 10 || v.length > 11));
-        }
-        if (phoneBlurUserEvent) {
-            phoneBlurUserEvent = false;
-            $(other).focus();
-            $(other).blur();
-        }
-        else {
-            phoneBlurUserEvent = true;
-        }
+export function onBlurPhone(evt) {
+    let v = evt.target.value;
+    // já temos um telefone válido, esse não precisa
+    if ((v == null || v.length == 0) && v2 != null && v2.length > 0) {
+        evt.target.setPristine();
     }
-    return f;
+    else {
+        v = v.replace(/\D/ig, '');
+        evt.target.setValidity(!(v == null || v.length < 10 || v.length > 11));
+    }
 }
 
 const MAIL_REGEX = /^[a-z](\w*([-\.]\w)?)+(\+[\w]+)?@([\w-]+\.)+[\w-]{2,4}$/gi;

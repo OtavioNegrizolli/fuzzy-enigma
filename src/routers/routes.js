@@ -1,68 +1,22 @@
 import { Router } from "express";
-import express from "express";
 
-const routes = Router();
+import {
+    createUserHandler,
+    updateUserHandler,
+    getUserHandler
+} from "../backend/routes/users.routes.js";
 
-/**
- * 
- * @param {Request} req 
- * @param {Response} res 
- */
-function getProduct(req, res) {
-    const productId = req.params.id;
-    return res.json({
-        id: productId,
-        name: 'Banana',
-        subcategory: 'Fruta',
-        category: 'Food'
-    });
-}
+const apiRoutes = Router();
 
-routes.get('/product/:id', getProduct);
+apiRoutes.use('/health', (_, res) => {
+    return res.status(200).json({ health: 'Alive!' });
+});
 
-/**
- * 
- * @param {express.Request} req 
- * @param {express.Response} res 
- */
-function getProducts(req, res) {
-    const r = req.query;
-    return res.json([
-        {
-            id: 123,
-            name: 'Banana1',
-            subcategory: 'Fruta',
-            category: 'Food'
-        },
-        {
-            id: 123,
-            name: 'Banana2',
-            subcategory: 'Fruta',
-            category: 'Food'
-        },
-        {
-            id: 123,
-            name: 'Banana3',
-            subcategory: 'Fruta',
-            category: 'Food'
-        },
-    ]);
-}
+apiRoutes.route('/user')
+    .post(createUserHandler)
+apiRoutes.route('/user/:id')
+    .put(updateUserHandler)
+    .patch(updateUserHandler)
+    .get(getUserHandler);
 
-routes.get('/product', getProducts);
-/**
- * 
- * @param {Request} req 
- * @param {Response} res 
- */
-function create(req, res) {
-    return res.status(201).json({
-        ok: 'nice'
-    });
-}
-routes.post('/product', create);
-
-
-routes.use(express.static('src/pages/private'));
-routes.use(express.static('src/public'));
-export default routes;
+export default apiRoutes;

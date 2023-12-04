@@ -54,44 +54,36 @@
           <header class="text-sm pb-3">Informações do usuário</header>
           <div class="row">
             <picture class="col justify-content-center align-items-center d-flex flex-column">
-              <img 
-                src="https://picsum.photos/200/300?grayscale" 
-                class="img-fluid img-thumbnail shadow" id="profilepng"
-                alt="Imagem de perfil" 
-              />
+              <img src="https://picsum.photos/200/300?grayscale" class="img-fluid img-thumbnail shadow" id="profilepng"
+                alt="Imagem de perfil" />
               <caption>
                 <label for="profileImg" class="form-label pt-2">Imagem de perfil</label>
                 <input class="visually-hidden" type="file" id="profileImg" name="profileImg" accept="image/*"
                   capture="environment">
               </caption>
             </picture>
-            <div class="col-12 col-md-7 col-lg-9 d-flex align-items-end">
+            <div class="col-12 col-md-7 col-lg-9 d-flex align-items-end" style="flex-wrap: wrap;">
+              <div class="col-12 form-group">
+                <label for="name" class="form-control-label">Nome</label>
+                <input id="name" class="form-control" type="text" value="Jesse">
+              </div>
               <div class="col-12 form-group">
                 <label for="username" class="form-control-label">Login</label>
-                <input id="username" name="username" class="form-control" type="text" >
+                <input id="username" name="username" class="form-control" type="text">
               </div>
+              
             </div>
-            
-          </div>
-          <div class="row">
-            <div class="col-12 col-md-6 form-group">
-              <label for="firstname" class="form-control-label">Primeiro nome</label>
-              <input id="firstname" class="form-control" type="text" value="Jesse">
-            </div>
-            <div class="col-12 col-md-6 form-group">
-              <label for="lastname" class="form-control-label">Último nome</label>
-              <input id="lastname" name="lastname" class="form-control" type="text" value="James">
-            </div>
+
           </div>
           <div class="row">
             <div class="col-12 col-md-6 form-group">
               <label for="password" class="form-control-label">Senha</label>
-              <input type="password" name="password" id="password" class="form-control" value="segredo"  />
+              <input type="password" name="password" id="password" class="form-control" value="segredo" />
               <i class="fa fa-eye" id="showpwd"></i>
             </div>
             <div class="col-12 col-md-6 form-group">
               <label for="confirmpassword" class="form-control-label">Confimar senha</label>
-              <input type="password" name="confirmpassword" id="confirmpassword" class="form-control" value="segredo"  />
+              <input type="password" name="confirmpassword" id="confirmpassword" class="form-control" value="segredo" />
               <i class="fa fa-eye" id="showconfirm"></i>
             </div>
             <div class="col-12 col-md-6 form-group">
@@ -100,26 +92,7 @@
             </div>
             <div class="col-12 col-md-6 form-group">
               <label for="birthdate" class="form-control-label">Data de Nascimento</label>
-              <input type="date" name="birthdate" id="birthdate"  class="form-control" />
-            </div>
-            <div class="col-12 col-sm-12 col-md-2 form-group">
-              <label for="children" class="form-control-label">N° filhos</label>
-              <input type="number" name="children" id="children" class="form-control" min="0" value="0"/>
-            </div>
-            <div class="col-12 col-md form-group">
-              <label class="mb-2">Genero</label><br/>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="genero" id="genero1" checked>
-                <label class="form-check-label" for="genero1">
-                  Masculino
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="genero" id="genero2">
-                <label class="form-check-label" for="genero2">
-                  Feminino
-                </label>
-              </div>
+              <input type="date" name="birthdate" id="birthdate" class="form-control" />
             </div>
           </div>
         </section>
@@ -128,16 +101,12 @@
         <section class="row">
           <header class="text-sm pb-3">Informações de contato</header>
           <div class="col-12 col-md-6 form-group">
-            <label for="phone" class="form-control-label" >Telefone 1</label>
-            <input id="phone" name="phone" type="tel" class="form-control">
-          </div>
-          <div class="col-12 col-md-6 form-group">
-            <label for="phone2" class="form-control-label">Telefone 2</label>
-            <input id="phone2" name="phone2" type="tel" class="form-control">
+            <label for="phone" class="form-control-label">Telefone</label>
+            <input id="phone" name="phone" type="tel" class="form-control" placeholder="(11) 9 9891-0443">
           </div>
           <div class="col-12 col-md-6 form-group">
             <label for="email" class="form-control-label">E-mail</label>
-            <input id="email" name="email" class="form-control" type="email" value="jesse@example.com"  >
+            <input id="email" name="email" class="form-control" type="email" value="jesse@example.com">
           </div>
         </section>
         <hr class="horizontal dark">
@@ -146,11 +115,11 @@
           <header class="text-sm pb-3">Endereço</header>
           <div class="col-12 col-md-3 form-group">
             <label for="cep" class="form-control-label">CEP</label>
-            <input id="cep" class="form-control" type="text" value="19.560-000" >
+            <input id="cep" class="form-control" type="text" value="19.560-000">
           </div>
           <div class="col-md-2 form-group">
             <label for="uf" class="form-control-label">Estado</label>
-            <select id="uf" class="form-select" type="text" >
+            <select id="uf" class="form-select" type="text">
               <option value="AC">AC</option>
               <option value="AL">AL</option>
               <option value="AM">AM</option>
@@ -182,19 +151,22 @@
           </div>
           <div class="col-md-4 form-group">
             <label for="city" class="form-control-label">Cidade</label>
-            <input id="city" name="city" class="form-control" type="text" value="Lugar nenhum" placeholder="Arroio dos Ratos"  >
+            <input id="city" name="city" class="form-control" type="text" value="Lugar nenhum"
+              placeholder="Arroio dos Ratos">
           </div>
           <div class="col-md-3 form-group">
             <label for="neighborhood" class="form-control-label">Bairro</label>
-            <input id="neighborhood" name="neighborhood" class="form-control" type="text" placeholder="Centro" value="Lugar nenhum" >
+            <input id="neighborhood" name="neighborhood" class="form-control" type="text" placeholder="Centro"
+              value="Lugar nenhum">
           </div>
           <div class="col-12 col-md-8 form-group">
             <label for="street" class="form-control-label">Rua</label>
-            <input id="street" name="street" class="form-control" type="text" value="Rua Dos Bobos" placeholder="Av. Brasil" >
+            <input id="street" name="street" class="form-control" type="text" value="Rua Dos Bobos"
+              placeholder="Av. Brasil">
           </div>
           <div class="col-12 col-sm-6 col-md-2 form-group">
             <label for="number" class="form-control-label">N°</label>
-            <input id="number" name="number" class="form-control" type="text" value="0" >
+            <input id="number" name="number" class="form-control" type="text" value="0">
           </div>
           <div class="col-12 col-sm-6 col-md-2 form-group">
             <label for="complement" class="form-control-label">Complemento</label>
@@ -214,13 +186,10 @@
         <section class="row">
           <div class="form-group col">
             <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="terms" >
-              <label class="form-check-label" for="terms">Li e aceito com os <a href="https://google.com" target="_blank" rel="noopener noreferrer">termos e condições</a></label>
+              <input class="form-check-input" type="checkbox" id="terms">
+              <label class="form-check-label" for="terms">Li e aceito com os <a href="https://google.com"
+                  target="_blank" rel="noopener noreferrer">termos e condições</a></label>
             </div>
-            <!-- <label for="terms">
-              <input type="checkbox" name="terms" id="terms" />
-              
-            </label> -->
           </div>
         </section>
       </article>

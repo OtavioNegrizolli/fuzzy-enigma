@@ -1,8 +1,11 @@
 import express from "express";
 import morgan from "morgan";
-import routes from "./routers/routes.js";
 import chalk from "chalk";
-import configure from "./database/db.js";
+
+import apiRoutes from "./routers/routes.js";
+import db from "./backend/database/db.js";
+
+import frontendRoutes from "./frontend/routes.js";
 
 process.on('uncaughtException', (e) => {
     console.log(chalk.red(e.message));
@@ -11,7 +14,7 @@ process.on('unhandledRejection', (e) => {
     console.log(chalk.red(e.message));
 });
 
-configure();
+db.configure();
 
 const app = express();
 
@@ -19,7 +22,8 @@ app.use(morgan('common'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(routes);
+app.use(frontendRoutes);
+app.use('/api', apiRoutes);
 
 const port = process.env.APP_PORT || 4000;
 app.listen(port, () => {

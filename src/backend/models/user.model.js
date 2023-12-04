@@ -1,9 +1,12 @@
+import bctypt from 'bcrypt';
+
 //insert into users(name, phone, email, zip_code, state, city, neighborhood,street, number, complement, birth_date, password) values (\
 //'first', '11997211243', 'frist@test.com', '01001000', 'SP', 'Sao Paulo', 'Se', 'Praca da Se', '5001', 'Lado impar', '20-12-2003', '$2y$10$k4K6kFmBErzcTUoFh43F1ugzf15HKy6osBm1yikc34T7lVXp7/z7m');
 
 export default class User {
     #id;
     #name;
+    #document;
     #phone;
     #email;
     #zip_code;
@@ -13,11 +16,16 @@ export default class User {
     #street;
     #number;
     #complement;
-    #birth_date;
+    #birthDate;
     #password;
-
+    #login;
+    #aboutMe;
+    /**
+     * @param {{name:string,document:string,phone:string,email:string,zip_code:string,state:string,city:string,neighborhood:string,street:string,number:string,complement:string,birthDate:Date,password:string,login:string,aboutMe:string, id?:number}} userData
+     */
     constructor({
         name,
+        document,
         phone,
         email,
         zip_code,
@@ -27,32 +35,40 @@ export default class User {
         street,
         number,
         complement,
-        birth_date,
+        birthDate,
         password,
+        login,
+        aboutMe, 
         id = null
     }) {
         this.#id = id;
-        this.#name = name;
-        this.#phone = phone;
+        this.#name = name.replace(/[\W_]/, '');
+        this.#document = document.replace(/[\D]/ig, '');
+        this.#phone = phone.replace(/[\D]/ig, '');
         this.#email = email;
-        this.#zip_code = zip_code;
+        this.#zip_code = zip_code.replace(/[\D]/ig, '');
         this.#state = state;
         this.#city = city;
         this.#neighborhood = neighborhood;
         this.#street = street;
         this.#number = number;
-        this.#complement = complement;
-        this.#birth_date = birth_date;
+        this.#complement = complement || null;
+        this.#birthDate = birthDate;
         this.#password = password;
+        this.#login = login;
+        this.#aboutMe = aboutMe || null;
     }
 
-
+    /** @returns {number} */
     get id() {
         return this.#id;
     }
-    /** @param {number} newId */
+    /** 
+     * @description insert a id if there is none
+     * @param {number} newId 
+     * */
     set id(newId) {
-        this.#id = newId;
+        this.#id = this.#id || newId;
     }
     /**@returns {string} the user name */
     get name() {
@@ -60,7 +76,15 @@ export default class User {
     }
     /** @param {string} newName */
     set name(newName) {
-        this.#name = newName;
+        this.#name = newName.replace(/[\W_]/ig, '');
+    }
+    /**@returns {string} the user name */
+    get document() {
+        return this.#document;
+    }
+    /** @param {string} newDocument */
+    set document(newDocument) {
+        this.#document = newDocument.replace(/[\D]/ig, '');
     }
     /**@returns {string} the user phone number */
     get phone() {
@@ -68,7 +92,7 @@ export default class User {
     }
     /** @param {string} newPhone */
     set phone(newPhone) {
-        this.#phone = newPhone;
+        this.#phone = newPhone.replace(/[\D]/ig, '');
     }
     get email() {
         return this.#email;
@@ -82,7 +106,7 @@ export default class User {
     }
     /** @param {string} newZipCode */
     set zipCode(newZipCode) {
-        this.#zip_code = newZipCode;
+        this.#zip_code = newZipCode.replace(/[\D]/ig, '');
     }
     get state() {
         return this.#state;
@@ -126,13 +150,15 @@ export default class User {
     set complement(newComplement) {
         this.#complement = newComplement;
     }
+    /** @returns {Date} */
     get birthDate() {
-        return this.#birth_date;
+        return this.#birthDate;
     }
     /** @param {Date} newBirthDate */
     set birthDate(newBirthDate) {
-        this.#birth_date = newBirthDate;
+        this.#birthDate = newBirthDate;
     }
+    /** @returns {string} the user password */
     get password() {
         return this.#password;
     }
@@ -140,5 +166,16 @@ export default class User {
     set password(newPassword) {
         this.#password = newPassword;
     }
-
+    /** @returns {string} the user login */
+    get login() {
+        return this.#login;
+    }
+    /** @param {string} bio */
+    set aboutMe(bio) {
+        this.#aboutMe = bio;
+    }
+    /** @returns {string} the user shor biography */
+    get aboutMe() {
+        return this.#aboutMe;
+    }
 }

@@ -1,11 +1,9 @@
 import {
     onBlurUserName, onBlurName, onBlurPassword,
     onBlurConfirmPassword, onBlurBirthDate, onBlurCPF,
-    onBlurChildrenNumber, onBlurPhone,  
-    onBlurEmail, onBlurCEP, onBlurCity, 
-    onBlurState, onBlurNeighborhood, onBlurStreet, 
-    onBlurNumber, onCpfChange, clearNonDigit,
-    onPhoneChange, onCEPChange
+    onBlurPhone, onBlurEmail, onBlurCEP, onBlurCity,
+    onBlurState, onBlurNeighborhood, onBlurStreet,
+    onBlurNumber, onCpfChange, onPhoneChange, onCEPChange
 } from './ui.js';
 
 /**
@@ -14,15 +12,12 @@ import {
 const $ = document.querySelector.bind(document);
 
 $("#username").onBlur(onBlurUserName);
-$("#firstname").onBlur(onBlurName);
-$("#lastname").onBlur(onBlurName);
+$("#name").onBlur(onBlurName);
 $("#password").onBlur(onBlurPassword);
 $("#confirmpassword").onBlur(onBlurConfirmPassword);
 $("#cpf").onBlur(onBlurCPF).onInput(onCpfChange);
 $("#birthdate").onBlur(onBlurBirthDate);
-$("#children").onBlur(onBlurChildrenNumber).onInput(clearNonDigit);
-$("#phone").onBlur(onBlurPhone('#phone2')).onInput(onPhoneChange);
-$("#phone2").onBlur(onBlurPhone('#phone')).onInput(onPhoneChange);
+$("#phone").onBlur(onBlurPhone).onInput(onPhoneChange);
 $("#email").onBlur(onBlurEmail);
 $("#cep").onBlur(onBlurCEP).onInput(onCEPChange);
 $("#city").onBlur(onBlurCity);
